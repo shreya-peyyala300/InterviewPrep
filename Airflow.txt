@@ -12,4 +12,4 @@ What are the basic steps to create a DAG?
 What is Branching in Directed Acyclic Graphs (DAGs)?
 What are ways to Control Airflow Workflow?BranchPythonOperator,LatestOnlyOperator,depends_on_past = true,trigger_rule[ "trigger_rule = always" to run it anyways.."trigger_rule = all_success" to run it only when all of its previous jobs succeed.]
 Explain the External task Sensor?
-
+What are the ways to monitor Apache Airflow?
