@@ -10,5 +10,6 @@ What is the role of Airflow Operators?-> operator can act as a wrapper around ea
 How does airflow communicate with a third party (S3, Postgres, MySQL)?
 What are the basic steps to create a DAG?
 What is Branching in Directed Acyclic Graphs (DAGs)?
-What are ways to Control Airflow Workflow?
+What are ways to Control Airflow Workflow?BranchPythonOperator,LatestOnlyOperator,depends_on_past = true,trigger_rule[ "trigger_rule = always" to run it anyways.."trigger_rule = all_success" to run it only when all of its previous jobs succeed.]
+Explain the External task Sensor?
 
