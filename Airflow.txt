@@ -1,1 +1,14 @@
+What is the airflow?
+What is a workflow?
+Components in Airflow?
+What are Local Executors and their types in Airflow?
+What are Variables (Variable Class) in Apache Airflow?
+What is the purpose of Airflow XComs?
+Why don't we use Variables instead of Airflow XComs, and how are they different?
+What are the states a Task can be in? Define an ideal task flow.
+What is the role of Airflow Operators?-> operator can act as a wrapper around each unit of work that defines the actions that will be completed and minimizes or effort to write a lot of code
+How does airflow communicate with a third party (S3, Postgres, MySQL)?
+What are the basic steps to create a DAG?
+What is Branching in Directed Acyclic Graphs (DAGs)?
+What are ways to Control Airflow Workflow?
 
