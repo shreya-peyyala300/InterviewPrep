@@ -17,3 +17,6 @@ What is TaskFlow API? and how is it helpful?
 How are Connections used in Apache Airflow?
 Explain Dynamic DAGs.
 What are some of the most useful Airflow CLI commands?Airflow dags list,Airflow dags delete,Airflow DB init,Airflow DB check,Airflow tasks list
+How to control the parallelism or concurrency of tasks in Apache Airflow configuration?parallelism: maximum number of tasks that can run concurrently |max_active_tasks_per_dag: maximum number of tasks that can be scheduled at once|max_active_runs_per_dag: . the maximum number of running tasks at once|concurrency: maximum number of tasks that can run concurrently in this dag.|max_active_runs: maximum number of active runs for this DAG.
+What are Macros in Airflow?->Macros are functions used as variables
+What are the limitations of TaskFlow API?-> small amt of data can be used 
