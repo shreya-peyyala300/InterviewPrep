@@ -15,3 +15,5 @@ Explain the External task Sensor?
 What are the ways to monitor Apache Airflow?
 What is TaskFlow API? and how is it helpful?
 How are Connections used in Apache Airflow?
+Explain Dynamic DAGs.
+What are some of the most useful Airflow CLI commands?Airflow dags list,Airflow dags delete,Airflow DB init,Airflow DB check
