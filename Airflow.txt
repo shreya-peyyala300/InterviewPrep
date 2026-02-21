@@ -21,3 +21,45 @@ How to control the parallelism or concurrency of tasks in Apache Airflow configu
 What are Macros in Airflow?->Macros are functions used as variables
 What are the limitations of TaskFlow API?-> small amt of data can be used 
 List the types of Trigger rules->all_success,all_failed,all_done,one_failed,one_success,none_failed,none_skipped
+What is Data Lineage?
+What are SLAs?-> SLA stands for Service Level Agreement; this is a time by which a task or a DAG should have succeeded. 
+Write a Python code to download a file from S3 to local system using airflow.
+  from airflow import DAG
+  from airflow.providers.amazon.aws.hooks.s3 import S3Hook
+  from airflow.operators.python import PythonOperator
+  from datetime import datetime
+  S3_BUCKET = "your-bucket-name"
+  S3_KEY = "path/to/your/file.csv"
+  LOCAL_PATH = "/tmp/file.csv"
+  AWS_CONN_ID = "aws_default"
+  def download_from_s3():
+      s3_hook = S3Hook(aws_conn_id=AWS_CONN_ID)
+      s3_hook.download_file(
+          key=S3_KEY,
+          bucket_name=S3_BUCKET,
+          local_path=LOCAL_PATH
+      )
+      print(f"File downloaded to {LOCAL_PATH}")
+Define a DAG and Schedule it to run on 10:30am everyday, starting from 1st November 2022.
+  with DAG(
+      dag_id="daily_1030am_dag",
+      start_date=datetime(2022, 11, 1),
+      schedule_interval="30 10 * * *",  # 10:30 AM every day
+      catchup=False,  # Set True if you want backfills from Nov 1, 2022
+      tags=["daily", "schedule_example"],
+  ) as dag:
+What is a Spark Submit Operator?
+  spark_task = SparkSubmitOperator(
+        task_id="run_spark_job",
+        application="/path/to/your_spark_script.py",
+        conn_id="spark_default",
+        executor_memory="2g",
+        driver_memory="1g",
+        num_executors=2,
+        verbose=True
+    )
+What Executor will you use to test multiple jobs at a low scale?-> Local Executor is ideal for testing multiple jobs in parallel for performing tasks
+If we want to exchange large amounts of data, what is the solution to the limitation of XComs?->spark
+Is there any way to restrict the number of variables to be used in your directed acyclic graph, and why would we need to do that?->we can just use a single Airflow variable as a JSON, as an Airflow variable can contain JSON values 
+How would you handle a task which has no dependencies on any other tasks?->trigger_rules = 'always'
+How can you use a set or a subset of parameters in some of the dags tasks without explicitly defining them in each task?->{{params.param1}}
