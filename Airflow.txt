@@ -20,3 +20,4 @@ What are some of the most useful Airflow CLI commands?Airflow dags list,Airflow 
 How to control the parallelism or concurrency of tasks in Apache Airflow configuration?parallelism: maximum number of tasks that can run concurrently |max_active_tasks_per_dag: maximum number of tasks that can be scheduled at once|max_active_runs_per_dag: . the maximum number of running tasks at once|concurrency: maximum number of tasks that can run concurrently in this dag.|max_active_runs: maximum number of active runs for this DAG.
 What are Macros in Airflow?->Macros are functions used as variables
 What are the limitations of TaskFlow API?-> small amt of data can be used 
+List the types of Trigger rules->all_success,all_failed,all_done,one_failed,one_success,none_failed,none_skipped
