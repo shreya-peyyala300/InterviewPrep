@@ -14,6 +14,6 @@ What is leader and follower in Kafka partition?-> Leader: Handles all reads/writ
 How does Kafka achieve high throughput?->Sequential disk I/O | Batching  |  Zero-copy transfer using sendfile  | Partitioning for parallelism
 What happens when a broker goes down?-> Partition leader fails → a follower is elected as the new leader | Consumers continue reading from the new leader
 Kafka vs RabbitMQ / ActiveMQ -> Kafka: Event streaming, high throughput, replayable logs |  RabbitMQ: Message queue, lower latency, point-to-point delivery
-Architecture of Kafka?
-Zookeeper in kafka?
+How to monitor Kafka?->Metrics: Broker, topic, consumer lag | Tools: Kafka Manager, Confluent Control Center, Prometheus, Grafana
+
 
