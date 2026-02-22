@@ -13,7 +13,7 @@ What is Kafka replication?-> Copies of partitions across multiple brokers for fa
 What is leader and follower in Kafka partition?-> Leader: Handles all reads/writes for the partition | Follower: Replicates leader; takes over if leader fails
 How does Kafka achieve high throughput?->Sequential disk I/O | Batching  |  Zero-copy transfer using sendfile  | Partitioning for parallelism
 What happens when a broker goes down?-> Partition leader fails → a follower is elected as the new leader | Consumers continue reading from the new leader
-
+Kafka vs RabbitMQ / ActiveMQ -> Kafka: Event streaming, high throughput, replayable logs |  RabbitMQ: Message queue, lower latency, point-to-point delivery
 Architecture of Kafka?
 Zookeeper in kafka?
 
