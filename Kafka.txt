@@ -28,3 +28,5 @@ How to ensure ordering of events in a multi-partition topic?-> Use a consistent 
 What would you do if consumer lag keeps increasing?-> Increase partitions and scale consumers horizontally, optimize processing logic, or increase consumer fetch/batch size.
 How would you handle a sudden traffic spike in Kafka?->Increase partitions for parallelism, scale brokers if needed, and tune producer batching and compression.
 What happens if a broker fails in a 3-replica setup?->A follower in the ISR is automatically elected as leader, ensuring no data loss if acks=all was used.
+How do you prevent data loss in Kafka?->Set replication factor ≥ 3, use acks=all, enable idempotent producers, and ensure min.insync.replicas is configured properly.
+How would you design Kafka for exactly-once processing?->Enable idempotent producers, use transactions, and commit consumer offsets within the same transaction.
