@@ -26,4 +26,5 @@ How do you handle reprocessing of old messages without duplicating results?-->Re
 How would you scale Kafka consumers for high throughput?->Increase the number of partitions and scale consumers within the same consumer group so each partition is processed in parallel.
 How to ensure ordering of events in a multi-partition topic?-> Use a consistent message key so related events go to the same partition, since Kafka guarantees ordering only within a partition.
 What would you do if consumer lag keeps increasing?-> Increase partitions and scale consumers horizontally, optimize processing logic, or increase consumer fetch/batch size.
-
+How would you handle a sudden traffic spike in Kafka?->Increase partitions for parallelism, scale brokers if needed, and tune producer batching and compression.
+What happens if a broker fails in a 3-replica setup?->A follower in the ISR is automatically elected as leader, ensuring no data loss if acks=all was used.
