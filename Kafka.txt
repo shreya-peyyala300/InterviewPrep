@@ -1,4 +1,19 @@
-What is Kafka?
+What is Kafka?->Distributed streaming platform for publish-subscribe messaging and real-time data pipelines.
+What are the main components of Kafka?->Producer, Consumer, Broker, Topic, Partition, Zookeeper
+Explain the difference between a topic and a partition.->Topic: Logical stream of data | Partition: Physical subset of a topic; allows parallelism and ordering per partition
+What is a Kafka Broker?-> A server in the Kafka cluster that stores messages and serves producers/consumers.
+What is the role of ZooKeeper in Kafka?->Manages cluster metadata, leader election (pre-KRaft).Newer Kafka versions can run in KRaft mode without ZooKeeper.
+What is the difference between Kafka Producer and Consumer?->Producer: Sends messages to Kafka topics  | Consumer: Reads messages from Kafka topics
+What is a Consumer Group?->A group of consumers sharing a group ID.|Kafka ensures each partition is consumed by only one consumer in the group.
+What is the difference between at-most-once, at-least-once, and exactly-once semantics? ->At-most-once: Message may be lost (no retry) | At-least-once: Messages may be duplicated | Exactly-once: Each message processed only once.
+What is offset in Kafka?-> Unique ID for a message in a partition. Used to track consumer position.
+How do you commit offsets in Kafka?-> Automatically: enable.auto.commit=true | Manually: consumer.commitSync() / consumer.commitAsync()
+Explain Kafka partitioning strategy.-> Default: Round-robin or based on message key hash | Ensures ordering per partition and load balancing
+What is Kafka replication?-> Copies of partitions across multiple brokers for fault tolerance
+What is leader and follower in Kafka partition?-> Leader: Handles all reads/writes for the partition | Follower: Replicates leader; takes over if leader fails
+How does Kafka achieve high throughput?->Sequential disk I/O | Batching  |  Zero-copy transfer using sendfile  | Partitioning for parallelism
+What happens when a broker goes down?-> Partition leader fails → a follower is elected as the new leader | Consumers continue reading from the new leader
+
 Architecture of Kafka?
 Zookeeper in kafka?
 
