@@ -15,5 +15,15 @@ How does Kafka achieve high throughput?->Sequential disk I/O | Batching  |  Zero
 What happens when a broker goes down?-> Partition leader fails → a follower is elected as the new leader | Consumers continue reading from the new leader
 Kafka vs RabbitMQ / ActiveMQ -> Kafka: Event streaming, high throughput, replayable logs |  RabbitMQ: Message queue, lower latency, point-to-point delivery
 How to monitor Kafka?->Metrics: Broker, topic, consumer lag | Tools: Kafka Manager, Confluent Control Center, Prometheus, Grafana
-
+What is log compaction?->Retains only the latest value for each key in a topic | Useful for changelogs / stateful applications
+What is Kafka Connect?--> Framework to integrate Kafka with external systems (DBs, files, etc.) with minimal code
+What is Kafka Streams?->Library for building real-time stream processing applications on top of Kafka
+Explain ISR (In-Sync Replicas).-> Set of replicas fully caught up with the leader | Only ISRs can be elected as leader
+What is KRaft mode?-->New mode in Kafka 3.x+ to remove dependency on ZooKeeper | Broker handles metadata and leader election itself
+How do you achieve exactly-once semantics in Kafka Streams?->Enable idempotent producer | Use transactions for writes | Consumers commit offsets within transactions
+How would you design a pipeline to process 1TB/day of log data using Kafka?-> Partition topics heavily for parallelism, use batched producers, scale brokers horizontally with replication, and process data via distributed consumers or stream processing frameworks like Spark/Kafka Streams.
+How do you handle reprocessing of old messages without duplicating results?-->Reset consumer offsets to the desired timestamp/offset and ensure idempotent or transactional processing to avoid duplicate writes.
+How would you scale Kafka consumers for high throughput?->Increase the number of partitions and scale consumers within the same consumer group so each partition is processed in parallel.
+How to ensure ordering of events in a multi-partition topic?-> Use a consistent message key so related events go to the same partition, since Kafka guarantees ordering only within a partition.
+What would you do if consumer lag keeps increasing?-> Increase partitions and scale consumers horizontally, optimize processing logic, or increase consumer fetch/batch size.
 
