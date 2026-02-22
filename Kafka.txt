@@ -30,3 +30,8 @@ How would you handle a sudden traffic spike in Kafka?->Increase partitions for p
 What happens if a broker fails in a 3-replica setup?->A follower in the ISR is automatically elected as leader, ensuring no data loss if acks=all was used.
 How do you prevent data loss in Kafka?->Set replication factor ≥ 3, use acks=all, enable idempotent producers, and ensure min.insync.replicas is configured properly.
 How would you design Kafka for exactly-once processing?->Enable idempotent producers, use transactions, and commit consumer offsets within the same transaction.
+How would you replay messages for debugging?->Reset consumer group offsets to a previous timestamp or offset and reprocess the data safely.
+How do you handle schema evolution in Kafka messages?->Use a schema registry with backward/forward compatibility to manage evolving message formats.
+How would you design Kafka for multi-region availability?->Use geo-replication (e.g., MirrorMaker) to replicate topics across regions for disaster recovery.
+How do you ensure low latency in Kafka?->Reduce batch size and linger time, optimize partitions, and ensure consumers process messages quickly.
+How do you handle large messages in Kafka?->Avoid very large payloads by storing data in object storage and passing only metadata/reference in Kafka.
