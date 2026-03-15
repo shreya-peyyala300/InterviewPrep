@@ -87,3 +87,40 @@
             FROM Weather)
             select id from cte where temperature>prev_temp and recordDate-prev_record=1
 4)
+        CREATE TABLE baskets (
+            Person VARCHAR(10),
+            Basket VARCHAR(100)
+        );
+        INSERT INTO baskets (Person, Basket) VALUES
+        ('A', 'Apple,Mango,Orange'),
+        ('B', 'Apple'),
+        ('C', 'Guava,Cherry'),
+        ('D', 'Mango,Cherry,Orange');
+        
+        select Person,
+        case when basket like '%Apple%' then 'YES' else 'No' end as Apple,
+        case when basket like '%Mango%' then 'YES' else 'No' end as Mango,
+        case when basket like '%Orange%' then 'YES' else 'No' end as Orange,
+        case when basket like '%Guava%' then 'YES' else 'No' end as Guava,
+        case when basket like '%Cherry%' then 'YES' else 'No' end as Cherry
+        from baskets
+
+5) Source and destination
+        create table routes ( source_city VARCHAR(50), destination_city VARCHAR(50) );
+        INSERT INTO routes (source_city, destination_city) VALUES ('Delhi','Hyderabad');
+        INSERT INTO routes (source_city, destination_city) VALUES ('Hyderabad','Delhi');
+        INSERT INTO routes (source_city, destination_city) VALUES ('Bangalore','Mumbai');
+        INSERT INTO routes (source_city, destination_city) VALUES ('Mumbai','Bangalore');
+        INSERT INTO routes (source_city, destination_city) VALUES ('Kolkata','Pune');
+        INSERT INTO routes (source_city, destination_city) VALUES ('Pune','Kolkata');
+        with cte as (select source_city,destination_city,
+        case 
+            when source_city<destination_city then source_city else destination_city end as city1,
+        case 
+            when source_city>destination_city then destination_city else source_city end as city2
+        from ROUTES)
+        select city1,city2 from cte group by city1,city2
+    Alter:
+        
+
+
