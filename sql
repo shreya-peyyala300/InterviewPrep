@@ -121,6 +121,18 @@
         from ROUTES)
         select city1,city2 from cte group by city1,city2
     Alter:
-        
+        WITH cte AS (
+            SELECT source_city,
+                   destination_city,
+                   ROW_NUMBER() OVER (ORDER BY source_city, destination_city) rn
+            FROM routes
+        )
+        SELECT cte1.source_city,
+               cte1.destination_city
+        FROM cte cte1
+        JOIN cte cte2
+        ON cte1.source_city = cte2.destination_city
+        AND cte1.destination_city = cte2.source_city
+        AND cte1.rn < cte2.rn;        
 
 
