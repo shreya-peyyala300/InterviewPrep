@@ -67,4 +67,23 @@
         FROM cte
         GROUP BY order_date
         ORDER BY order_date;
-3)
+3)Temperature higher than previous day
+            CREATE TABLE Weather (
+                id NUMBER PRIMARY KEY,
+                recordDate DATE,
+                temperature NUMBER
+            );
+            
+            INSERT INTO Weather VALUES (1, DATE '2025-10-01', 20);
+            INSERT INTO Weather VALUES (2, DATE '2025-10-02', 25);
+            INSERT INTO Weather VALUES (3, DATE '2025-10-04', 22);
+            INSERT INTO Weather VALUES (4, DATE '2025-10-05', 30);
+            INSERT INTO Weather VALUES (5, DATE '2025-10-06', 28);
+            INSERT INTO Weather VALUES (6, DATE '2025-10-08', 35);
+            
+            with cte as(SELECT id,recordDate,temperature,
+            LAG(recordDate) OVER (ORDER BY recordDate) AS prev_record,
+                   LAG(temperature) OVER (ORDER BY recordDate) AS prev_temp
+            FROM Weather)
+            select id from cte where temperature>prev_temp and recordDate-prev_record=1
+4)
