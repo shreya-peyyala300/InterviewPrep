@@ -20,6 +20,71 @@ deltaTable.alias("target").merge(
 5)based on unique column
 
 
+1. What is Delta Lake?
+
+Delta Lake is an open-source storage layer that brings ACID transactions, schema enforcement, and versioning to data lakes, enabling reliable and scalable data processing.
+
+2. What are Delta Tables?
+
+Delta tables are tables stored in Delta format that support transactions, versioning, and efficient reads/writes on top of data lakes.
+
+3. Difference: Parquet vs Delta
+Feature	Parquet	Delta
+ACID	❌	✅
+Schema enforcement	❌	✅
+Time travel	❌	✅
+Upserts	❌	✅
+Performance	Good	Better
+🚀 Intermediate Questions
+4. What is ACID in Delta Lake?
+Atomicity → all or nothing
+Consistency → valid data
+Isolation → no conflicts
+Durability → data persists
+5. What is Time Travel?
+
+👉 Access old versions of data
+
+SELECT * FROM table VERSION AS OF 5;
+6. What is Schema Enforcement vs Evolution?
+Enforcement → rejects invalid schema
+Evolution → allows adding new columns
+.option("mergeSchema", "true")
+7. What is MERGE INTO?
+
+👉 Used for upsert (insert + update)
+
+MERGE INTO target t
+USING source s
+ON t.id = s.id
+WHEN MATCHED THEN UPDATE SET *
+WHEN NOT MATCHED THEN INSERT *
+8. What is OPTIMIZE?
+
+👉 Compacts small files into bigger ones
+
+OPTIMIZE table_name;
+9. What is Z-ORDER?
+
+👉 Improves query performance by clustering data
+
+OPTIMIZE table_name ZORDER BY (id);
+10. What is VACUUM?
+
+👉 Deletes old files (cleanup)
+
+VACUUM table_name RETAIN 168 HOURS;
+
+
+
+
+
+
+
+
+
+
+
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import explode, split, col
