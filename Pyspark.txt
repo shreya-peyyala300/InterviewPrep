@@ -77,6 +77,39 @@ VACUUM table_name RETAIN 168 HOURS;
 
 
 
+11. How does Delta Lake ensure ACID?
+
+👉 Uses:
+
+transaction log (_delta_log)
+optimistic concurrency control
+12. What is Delta Log?
+
+👉 A folder (_delta_log) that stores:
+
+metadata
+transactions
+schema changes
+
+
+When NOT to use Partitioning?
+low cardinality ❌
+too many small partitions ❌
+19. What is Delta Live Tables (DLT)?
+
+👉 Declarative pipeline framework for:
+
+ETL
+streaming
+data quality
+20. How do you handle Late Data in Delta?
+
+👉 Using:
+
+MERGE (upsert)
+watermarking
+partition reprocessing
+
 
 
 
