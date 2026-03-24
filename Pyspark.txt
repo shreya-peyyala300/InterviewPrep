@@ -1,1 +1,169 @@
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import explode, split, col
+
+# Create Spark session
+spark = SparkSession.builder.appName("SplitExplodeExample").getOrCreate()
+
+# Input data
+data = [
+    ('alica', 'Badminton,Tennis'),
+    ('bob', 'Cricket,Badminton')
+]
+
+schema = ['name', 'sports']
+
+# Create DataFrame
+df = spark.createDataFrame(data, schema)
+
+# Show original data
+print("Original Data:")
+df.show()
+
+# Transform: split + explode
+result_df = df.select(
+    col("name"),
+    explode(split(col("sports"), ",")).alias("sport")
+)
+
+# Show result
+print("Transformed Data:")
+result_df.show()
+
+# Print schema (for understanding)
+print("Schema:")
+df.printSchema()
+
+--------------------------------------------------------------------------------------------------------------------
+
+data=[('goa','','AP'),('','AP',None),(None,'','bg')]
+schema=['city1','city2','city3']
+df=spark.createDataFrame(data,schema)
+df.show()
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
+from pyspark.sql.functions import *
+
+df1=df.withColumn('firstnotnull',coalesce(
+    when(df.city1=="",None).otherwise(df.city1),
+    when(df.city2=="",None).otherwise(df.city2),
+    when(df.city3=="",None).otherwise(df.city3)))
+df1.show()
+
+----------------------------------------------------------------------------------------------------------------------------
+
+data=[(1,'Steve'),(2,'David'),(3,'Ravi')]
+schema=['id','name']
+
+data2=[(1,'pyspark',90),(1,'sql',100),(2,'pyspark',80),(2,'sql',90),(3,'pyspark',80),(3,'sql',90)]
+schema2=['id','course','marks']
+
+df=spark.createDataFrame(data,schema)
+df2=spark.createDataFrame(data2,schema2)
+df.show()
+df2.show()
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
+df3=df.join(df2,df.id==df2.id).drop(df2.id).groupBy('id','name').agg((sum('marks')/count('*')).alias('avgmarks'))
+display(df3)
+
+from pyspark.sql.functions import when, col
+
+df4 = df3.select(
+    "*",
+    when(col("avgmarks") > 80, "Distinction")
+    .when((col("avgmarks") > 60) & (col("avgmarks") <= 80), "First")
+    .when((col("avgmarks") > 40) & (col("avgmarks") <= 60), "Second")
+    .otherwise("Fail")
+    .alias("grade")
+)
+df4.display()
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+data=[(1,'A',1000,'IT'),(2,'B',2000,'HR'),(3,'C',3000,'IT'),(4,'D',4000,'HR'),(5,'E',5000,'IT'),(6,'F',6000,'HR'),(7,'G',7000,'IT'),(8,'H',8000,'HR'),(9,'I',9000,'IT'),(10,'J',10000,'HR')]
+df = spark.createDataFrame(data, schema = ['id','name','salary','dept'])
+df.show()
+from pyspark.sql.functions import col, lit
+
+from pyspark.sql.functions import dense_rank, col
+from pyspark.sql.window import Window
+
+df_rank = df.select(
+    "*",
+    dense_rank().over(
+        Window.partitionBy("dept").orderBy(col("salary").desc())
+    ).alias("rank")
+)
+df1=df_rank.filter(df_rank.rank==1)
+
+display(df1)
+
+
+------------------------------------------------------------------------------------------------------------------------
+from pyspark.sql.functions import col
+
+prefix = "de_"
+
+ddfg_new = ddfg.select(
+    *[col(c).alias(prefix + c) for c in ddfg.columns]
+)
+
+display(ddfg_new)
+
+------------------------------------------------------------------------------
+data=[(1,None,'ab'),(2,10,None),(None,None,'cd')]
+schema=['id','marks','name']
+df=spark.createDataFrame(data,schema)
+df.show()
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+
+df.select([sum(col(c).isNull().cast('int')).alias(c) for c in df.columns]).display()
+
+
+from pyspark.sql.functions import col, sum
+
+df.select(
+    [sum(col(c).isNotNull().cast("int")).alias(c) for c in df.columns]
+).display()
+------------------------------------------------------------------------------------
+
+df=spark.createDataFrame([('virat kohli'),('surya prakash e')],['name'])
+
+from pyspark.sql.functions import initcap, col
+
+df_new = df.withColumn("name", initcap(col("name")))
+
+df_new.display()
+
+--------------------------------------------------------------------------------------
+
+df1.subtract(df2)
+-----------------------------------------------------------------------------------------
+df = spark.createDataFrame(
+    [(2), (23), ('opu'), (9), (67), ('ikj'), (100)],
+    ['name']
+)
+
+df.show()
+
+from pyspark.sql.functions import col
+
+df_int = df.filter(col("name").rlike("^[0-9]+$"))
+
+df_int.show()
+
+--------------------------------------------------------------------------------------------------------
+non repeating
+df.withColumn('cnt',count('*').over(Window.partitionBy('empid')))
+
+-----------------------------------------------------------------------------------------------------
+
+pick_up.groupBy('pickup_location').count().orderBy(desc('count')).limit(3)
+
+--------------------------------------------------------------------------------------------------------
+
 
