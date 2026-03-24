@@ -1,3 +1,6 @@
+“Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
+
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import explode, split, col
 
