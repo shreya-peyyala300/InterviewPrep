@@ -270,7 +270,7 @@ cost-sensitive workloads
 
 
 
-
+“Lakehouse architecture combines the scalability and flexibility of data lakes with the reliability and performance of data warehouses. It uses technologies like Delta Lake to provide ACID transactions, schema enforcement, and supports both batch and streaming workloads.”
 
 
 
