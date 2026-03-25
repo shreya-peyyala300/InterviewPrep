@@ -111,6 +111,163 @@ watermarking
 partition reprocessing
 
 
+How do you handle duplicates?
+
+Use MERGE or dropDuplicates() before writing.
+
+Pipeline failed midway — what happens?
+
+Delta ensures ACID → partial writes are not committed.
+
+How do you improve performance?
+OPTIMIZE
+ZORDER
+partitioning
+caching
+
+DLT***********************************************
+1. What is Delta Live Tables (DLT)?
+
+Delta Live Tables is a declarative ETL framework in Databricks used to build reliable, scalable, and maintainable data pipelines with built-in data quality, monitoring, and orchestration.
+
+2. Why use DLT instead of ADF + Databricks?
+
+DLT simplifies pipeline development by:
+
+reducing boilerplate code
+providing built-in data quality checks
+handling dependency management automatically
+offering monitoring and lineage out of the box
+
+3. What are the core components of DLT?
+Tables (@dlt.table)
+Views (@dlt.view)
+Expectations (data quality rules)
+Pipelines
+
+4. Difference between @dlt.table and @dlt.view
+Feature	Table	View
+Stored	✅ Yes	❌ No
+Materialized	✅	❌
+Use case	Final/Intermediate data	Transformation logic
+
+5. What are Expectations in DLT?
+
+👉 Data quality rules
+
+import dlt
+
+@dlt.table
+@dlt.expect("valid_age", "age > 0")
+def users():
+    return spark.read.json("path")
+6. Types of Expectations
+expect → keep invalid data, log metrics
+expect_or_drop → drop bad records
+expect_or_fail → fail pipeline
+
+7. What is Medallion Architecture in DLT?
+Bronze → raw data
+Silver → cleaned data
+Gold → aggregated data
+8. What is Pipeline Mode in DLT?
+Triggered → runs on demand
+Continuous → runs continuously (streaming)
+
+9. What is Auto Loader in DLT?
+
+👉 Incrementally loads new files
+
+spark.readStream.format("cloudFiles")
+
+✔ Handles:
+
+schema inference
+new files automatically
+
+10. What is Schema Evolution in DLT?
+
+👉 Automatically adapts to schema changes
+
+11. How does DLT handle dependencies?
+
+👉 Automatically builds DAG based on table definitions
+(no need to manually orchestrate)
+
+12. What is Lineage in DLT?
+
+👉 Tracks:
+
+data flow
+transformations
+dependencies
+
+14. What happens if a DLT pipeline fails?
+
+👉 It:
+
+retries automatically
+maintains consistency using Delta
+
+15. How does DLT handle streaming data?
+
+👉 Uses:
+
+structured streaming
+Auto Loader
+incremental processing
+16. What is LIVE keyword?
+
+👉 Refers to DLT-managed tables
+
+SELECT * FROM LIVE.table_name
+
+17. How do you optimize DLT pipelines?
+partitioning
+optimize + z-order
+proper cluster sizing
+18. How does DLT ensure idempotency?
+
+👉 Using:
+
+incremental processing
+checkpointing
+Delta transactions
+19. How do you handle late-arriving data in DLT?
+
+👉 Using:
+
+watermarking
+merge logic
+streaming checkpoints
+
+20. What is CDC in DLT?
+
+👉 Change Data Capture support:
+
+track inserts/updates/deletes
+
+21. How do you design a DLT pipeline?
+
+“I design pipelines using Medallion architecture, ingest data using Auto Loader into Bronze, clean and validate in Silver using expectations, and aggregate into Gold tables.”
+
+22. How do you debug DLT pipelines?
+check event logs
+pipeline UI
+data quality metrics
+23. How do you monitor DLT?
+DLT UI
+metrics
+logs
+24. How do you handle schema changes?
+
+Enable schema evolution or use mergeSchema
+
+25. When NOT to use DLT?
+very simple pipelines
+when custom orchestration needed
+cost-sensitive workloads
+
 
 
 
