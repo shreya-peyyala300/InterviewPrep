@@ -2,6 +2,7 @@
 
 “A data lake is a storage system for raw data, whereas Delta Lake is an open table format that adds ACID transactions, schema enforcement, and efficient data processing capabilities on top of a data lake.”
 
+Parquet stores the actual data, while _delta_log stores metadata and transaction history to manage that data.
 
 What is Data Skipping?
 
