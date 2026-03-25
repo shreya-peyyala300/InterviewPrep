@@ -1,5 +1,7 @@
 “Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
 
+“A data lake is a storage system for raw data, whereas Delta Lake is an open table format that adds ACID transactions, schema enforcement, and efficient data processing capabilities on top of a data lake.”
+
 
 What is an Open Table Format?
 
