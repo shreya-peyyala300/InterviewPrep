@@ -1,6 +1,63 @@
 “Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
 
 “A data lake is a storage system for raw data, whereas Delta Lake is an open table format that adds ACID transactions, schema enforcement, and efficient data processing capabilities on top of a data lake.”
+Streaming ***************************************************************************
+
+What is Structured Streaming?
+
+Structured Streaming is a high-level API in Apache Spark that treats streaming data as a continuous DataFrame/Dataset.
+
+3. Difference between Spark Streaming vs Structured Streaming
+Feature	Spark Streaming (Old)	Structured Streaming
+API	RDD-based	DataFrame-based
+Ease	Complex	Easy
+Optimization	Limited	Catalyst optimizer
+Status	Deprecated	Recommended
+
+4. What are Triggers?
+
+Define how often streaming jobs run.
+
+Types:
+
+ProcessingTime
+Once
+AvailableNow
+Continuous
+5. What is Watermarking?
+
+Handles late-arriving data by defining a delay threshold.
+
+df.withWatermark("timestamp", "10 minutes")
+6. What are Window Types?
+Tumbling
+Sliding
+Session
+
+What is Checkpointing?
+
+Stores metadata to ensure fault tolerance and recovery.
+
+.option("checkpointLocation", "/path")
+8. What is Exactly-Once Processing?
+
+Ensures data is processed only once, even in failures.
+
+9. What is Output Mode?
+Append → new rows only
+Update → updated rows
+Complete → full result
+10. What is Sink?
+
+Destination of streaming data:
+
+Delta
+Kafka
+Console
+
+
+
+
 
 Parquet stores the actual data, while _delta_log stores metadata and transaction history to manage that data.
 
