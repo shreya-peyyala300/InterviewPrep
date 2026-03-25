@@ -1,6 +1,40 @@
 “Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
 
 “In our project, we used Unity Catalog to manage data access across multiple teams. We defined catalogs and schemas for different domains and applied role-based access control to ensure secure and governed data access.”
+1. What is Unity Catalog?
+
+👉 Central governance layer in Databricks
+
+2. What is a Catalog?
+
+👉 Top-level container for data
+
+3. What is Schema?
+
+👉 Logical grouping of tables
+
+4. How do you control access?
+
+👉 Using:
+
+GRANT / REVOKE
+roles
+
+5. What is data lineage?
+
+👉 Tracking data flow
+
+6. How is security implemented?
+
+👉 RBAC (Role-Based Access Control)
+
+🧩 Real Example
+CREATE CATALOG sales;
+CREATE SCHEMA sales.finance;
+
+GRANT SELECT ON SCHEMA sales.finance TO analyst_role;
+
+
 
 ADF handles late-arriving data using watermark-based incremental loads and upsert mechanisms. For delayed records, we rely on merge operations in downstream systems like Databricks, and for critical scenarios, we reprocess affected partitions using parameterized pipelines to ensure data consistency.
 
