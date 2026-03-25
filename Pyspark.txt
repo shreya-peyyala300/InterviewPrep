@@ -1,5 +1,11 @@
 “Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
 
+
+What is an Open Table Format?
+
+An Open Table Format is a storage format for data lakes that is open-source, standardized, and accessible across multiple tools and engines, providing features like ACID transactions, schema evolution, and versioning.
+
+
 “In our project, we used Unity Catalog to manage data access across multiple teams. We defined catalogs and schemas for different domains and applied role-based access control to ensure secure and governed data access.”
 1. What is Unity Catalog?
 
