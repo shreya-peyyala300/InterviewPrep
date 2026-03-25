@@ -56,6 +56,12 @@ deltaTable.alias("target").merge(
 5)based on unique column
 
 
+What is a Deletion Vector?
+
+A Deletion Vector is a feature in Delta Lake that tracks deleted rows without physically removing them from data files.
+
+
+
 1. What is Delta Lake?
 
 Delta Lake is an open-source storage layer that brings ACID transactions, schema enforcement, and versioning to data lakes, enabling reliable and scalable data processing.
