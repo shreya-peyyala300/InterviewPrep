@@ -3,6 +3,11 @@
 “A data lake is a storage system for raw data, whereas Delta Lake is an open table format that adds ACID transactions, schema enforcement, and efficient data processing capabilities on top of a data lake.”
 
 
+What is Data Skipping?
+
+Data Skipping is an optimization technique where Delta Lake avoids scanning unnecessary data files by using metadata (like min/max values).
+
+
 What is an Open Table Format?
 
 An Open Table Format is a storage format for data lakes that is open-source, standardized, and accessible across multiple tools and engines, providing features like ACID transactions, schema evolution, and versioning.
