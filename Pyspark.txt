@@ -1,3 +1,47 @@
+🚀 1. Fault Tolerance in Batch Processing
+🟢 a) Retry Mechanism
+Failed jobs are retried automatically (ADF / orchestration)
+🟡 b) Idempotent Design
+Re-running job → same result
+Use MERGE instead of INSERT
+🔵 c) Checkpointing (Intermediate Storage)
+Store intermediate results
+Resume from failure point
+🟣 d) Partition-Based Processing
+Process data in chunks (by date/partition)
+Only reprocess failed partitions
+🔴 e) Transaction Support (Delta)
+
+👉 Using Delta Lake:
+
+ACID transactions
+partial writes are rolled back
+🚀 2. Fault Tolerance in Streaming
+🟢 a) Checkpointing (Most Important)
+df.writeStream \
+  .option("checkpointLocation", "/path") \
+  .start()
+
+👉 Stores:
+offsets
+progress
+state
+🟡 b) Exactly-Once Processing
+👉 Ensures:
+no duplicates
+no data loss
+🔵 c) Replay Mechanism
+👉 If failure:
+Spark reads from last checkpoint
+reprocesses data
+🟣 d) Write-Ahead Logs (WAL)
+Logs data before processing
+ensures recovery
+🔴 e) Idempotent Sink
+👉 Use:
+Delta MERGE
+deduplication
+
 “Auto Loader is a scalable file ingestion mechanism in Databricks that incrementally processes new files from cloud storage and is commonly used in Delta Live Tables to build efficient and reliable streaming data pipelines.”
 
 “A data lake is a storage system for raw data, whereas Delta Lake is an open table format that adds ACID transactions, schema enforcement, and efficient data processing capabilities on top of a data lake.”
