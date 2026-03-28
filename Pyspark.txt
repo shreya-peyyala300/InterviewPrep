@@ -566,7 +566,7 @@ df.select(
 ).display()
 ------------------------------------------------------------------------------------
 
-df=spark.createDataFrame([('virat kohli'),('surya prakash e')],['name'])
+df=spark.createDataFrame([('virat kohli'),('park babe')],['name'])
 
 from pyspark.sql.functions import initcap, col
 
