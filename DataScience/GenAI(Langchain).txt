@@ -1,3 +1,242 @@
+1. What is Generative AI?
+
+AI that generates new content (text, images, code) using learned patterns from data.
+
+2. What are LLMs?
+
+Large Language Models trained on massive text data to understand and generate human-like text.
+
+3. Examples of LLMs?
+
+GPT, LLaMA, Claude, PaLM.
+
+4. What is a Transformer?
+
+Deep learning architecture using attention mechanism (no recurrence).
+
+5. What is Attention Mechanism?
+
+Helps model focus on relevant words in a sequence.
+
+6. What is Self-Attention?
+
+Each word attends to all other words in the input.
+
+7. What is Tokenization?
+
+Splitting text into tokens (words/subwords).
+
+8. What is a Token?
+
+Basic unit of text processed by LLM.
+
+9. What is Context Window?
+
+Maximum tokens model can process at once.
+
+10. What is Temperature?
+
+Controls randomness (low = deterministic, high = creative).
+
+🔹 2. Core Concepts (VERY HIGH FREQUENCY)
+11. What is Prompt Engineering?
+
+Designing inputs to guide LLM outputs effectively.
+
+12. Few-shot vs Zero-shot?
+
+Few-shot = examples given
+Zero-shot = no examples
+
+13. What is Hallucination?
+
+Model generates incorrect or fabricated information.
+
+14. How to reduce hallucination?
+Use RAG
+Grounding
+Better prompts
+15. What is RAG (Retrieval-Augmented Generation)?
+
+Combines retrieval (docs) + generation (LLM).
+
+16. Why RAG?
+
+Improves accuracy using external data.
+
+17. What are Embeddings?
+
+Vector representation of text.
+
+18. What is Vector Database?
+
+Stores embeddings for similarity search.
+
+19. Examples of Vector DB?
+
+FAISS, Pinecone, Chroma.
+
+20. What is Similarity Search?
+
+Finding closest vectors to a query.
+
+🔹 3. Architecture Questions (CRITICAL)
+21. Explain RAG Architecture
+
+Loader → Splitter → Embeddings → Vector DB → Retriever → LLM
+
+22. What is Chunking?
+
+Splitting large documents into smaller parts.
+
+23. Why Chunking?
+
+LLMs have token limits.
+
+24. What is Chunk Overlap?
+
+Shared context between chunks.
+
+25. What is Retriever?
+
+Fetches relevant documents.
+
+26. What is Cosine Similarity?
+
+Measures similarity between vectors.
+
+27. Dense vs Sparse Embeddings?
+
+Dense = semantic
+Sparse = keyword-based
+
+28. What is Hybrid Search?
+
+Combination of semantic + keyword search.
+
+29. What is Re-ranking?
+
+Improving retrieved results ordering.
+
+30. What is Metadata Filtering?
+
+Filtering results using attributes.
+
+🔹 4. Advanced Concepts (High Impact)
+31. What is Fine-tuning?
+
+Training model on domain-specific data.
+
+32. Fine-tuning vs Prompting?
+
+Fine-tuning = training
+Prompting = instructions
+
+33. What is LoRA?
+
+Efficient fine-tuning technique (low-rank adaptation).
+
+34. What is PEFT?
+
+Parameter-efficient fine-tuning.
+
+35. What is RLHF?
+
+Reinforcement Learning with Human Feedback.
+
+36. What is Alignment?
+
+Ensuring model follows human values.
+
+37. What is Guardrails?
+
+Constraints to control output.
+
+38. What is Prompt Injection?
+
+Malicious input altering behavior.
+
+39. How to prevent prompt injection?
+Input validation
+Output filtering
+Restricted tools
+40. What is Function Calling?
+
+LLM calling APIs with structured output.
+
+🔹 5. Agents & Applications
+41. What are AI Agents?
+
+LLMs that take actions using tools.
+
+42. Agent vs LLM?
+
+LLM = text generation
+Agent = decision + action
+
+43. What is ReAct?
+
+Reasoning + acting loop.
+
+44. What is Tool Calling?
+
+Using external APIs/functions.
+
+45. What is Multi-agent system?
+
+Multiple agents collaborating.
+
+🔹 6. Evaluation & Production
+46. How to evaluate LLMs?
+Human evaluation
+BLEU, ROUGE
+LLM-as-judge
+47. What is Latency?
+
+Response time.
+
+48. How to reduce latency?
+Smaller models
+Caching
+Streaming
+49. How to reduce cost?
+Token optimization
+Caching
+Batching
+50. What is Observability?
+
+Monitoring LLM behavior.
+
+🔹 7. Scenario-Based Questions (VERY IMPORTANT)
+51. Design a chatbot
+
+LLM + memory + prompt + retrieval.
+
+52. Build PDF QA system
+
+Loader → chunk → embeddings → vector DB → retriever → LLM.
+
+53. Improve RAG accuracy
+Better chunking
+Re-ranking
+Hybrid search
+54. Handle long documents
+
+Chunk + summarize.
+
+55. Prevent hallucination in production
+
+RAG + citations + guardrails.
+
+56. Build recommendation system using LLM?
+
+Use embeddings + similarity search.
+
+57. How to handle user sessions?
+
+Use memory/store context.
+
+
 What is LangChain?
 Why do we need LangChain?
 What problems does LangChain solve?
