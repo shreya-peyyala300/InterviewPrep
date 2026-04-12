@@ -1,1 +1,321 @@
+What is LangChain?
+Why do we need LangChain?
+What problems does LangChain solve?
+What are LLMs in LangChain?
+What is a Chain in LangChain?
+Difference between Chain and Agent?
+What is a Prompt Template?
+What is a Few-shot prompt?
+What are Output Parsers?
+What is memory in LangChain?
+Types of memory in LangChain?
+What is ConversationBufferMemory?
+What is ConversationSummaryMemory?
+What is a Tool in LangChain?
+What are Agents?
+Types of Agents?
+What is Zero-shot ReAct Agent?
+What is ReAct framework?
+What is LLMChain?
+What is SequentialChain?
+What is SimpleSequentialChain?
+What is Prompt Engineering?
+What is temperature in LLM?
+What is token limit?
+What is streaming in LangChain?
+🔹 Intermediate (26–60)
+What is Retrieval-Augmented Generation (RAG)?
+Why is RAG important?
+What are embeddings?
+What embedding models are supported?
+What is a vector database?
+Examples of vector DBs used with LangChain?
+What is FAISS?
+What is Pinecone?
+What is Chroma DB?
+How does similarity search work?
+What is cosine similarity?
+Difference between cosine similarity and Euclidean distance?
+What is a retriever?
+What is a document loader?
+Types of document loaders?
+What is text splitting?
+Why is chunking needed?
+Types of text splitters?
+What is RecursiveCharacterTextSplitter?
+What is a pipeline in LangChain?
+What is Runnable in LangChain?
+Difference between Runnable and Chain?
+What is LCEL (LangChain Expression Language)?
+Benefits of LCEL?
+What is parallel execution in LCEL?
+What is streaming support in LCEL?
+What is callback system in LangChain?
+What is LangSmith?
+Why use LangSmith?
+What is tracing in LangChain?
+How to debug LangChain applications?
+What is prompt injection?
+How to prevent prompt injection?
+What is hallucination in LLMs?
+How to reduce hallucination?
+🔹 Advanced (61–85)
+How does an Agent decide which tool to use?
+What is tool calling?
+What is function calling in LLMs?
+Difference between OpenAI function calling and LangChain tools?
+What is multi-agent system?
+What is agent planning?
+What is agent execution loop?
+What is self-reflection in agents?
+What is AutoGPT vs LangChain agents?
+What is LangGraph?
+Why use LangGraph over LangChain?
+What is DAG in LangGraph?
+What is state management in LangGraph?
+What is persistence in LangGraph?
+What is human-in-the-loop?
+What is streaming tokens vs streaming responses?
+What is async execution in LangChain?
+What is batching in LangChain?
+What is caching in LangChain?
+What is cost optimization in LangChain?
+How to handle rate limits?
+How to design scalable LLM apps?
+What is evaluation in LangChain?
+What are eval metrics for LLM apps?
+What is guardrails in LangChain?
+🔹 Scenario-Based / Real-world (86–100)
+How would you build a chatbot using LangChain?
+How would you implement RAG for a PDF QA system?
+How do you choose chunk size?
+How do you improve retrieval accuracy?
+How do you handle long documents?
+How do you reduce hallucination in production?
+How would you design a multi-agent system?
+How do you integrate APIs with LangChain?
+How would you build a resume screening system?
+How do you evaluate chatbot performance?
+How do you deploy a LangChain app?
+How do you monitor LLM applications?
+How do you handle user sessions?
+How do you ensure data privacy in LLM apps?
+How do you optimize latency in LangChain apps?
 
+
+eginner (1–50)
+What is LangChain?
+Framework to build LLM-powered applications using chains, agents, memory, and tools.
+Why LangChain?
+Simplifies LLM app development (prompting + retrieval + orchestration).
+LLM in LangChain?
+Core model used for generating text (OpenAI, HuggingFace, etc.).
+What is a Chain?
+Sequence of steps combining LLM + logic.
+Chain vs Agent?
+Chain = fixed flow, Agent = dynamic decision-making.
+Prompt Template?
+Reusable prompt with variables.
+Few-shot prompting?
+Providing examples in prompt for better output.
+Output Parser?
+Converts LLM output into structured format.
+Memory?
+Stores conversation/history context.
+ConversationBufferMemory?
+Stores full conversation.
+ConversationSummaryMemory?
+Stores summarized history.
+Tool?
+External function/API used by agent.
+Agent?
+LLM that decides which tools to use.
+Zero-shot Agent?
+Acts without training examples.
+ReAct?
+Reason + Act (think + execute).
+LLMChain?
+Basic chain using prompt + LLM.
+SequentialChain?
+Multiple chains executed in sequence.
+SimpleSequentialChain?
+Simpler version of sequential chain.
+Temperature?
+Controls randomness (0 = deterministic).
+Token?
+Smallest unit of text.
+Streaming?
+Real-time token output.
+Top-k?
+Limits token selection pool.
+Top-p?
+Probability-based token selection.
+Max tokens?
+Output length limit.
+Stop sequences?
+Stops generation at specific tokens.
+🔹 RAG + Retrieval (51–100)
+RAG?
+Combines retrieval + generation.
+Why RAG?
+Reduces hallucination.
+Embedding?
+Vector representation of text.
+Vector DB?
+Stores embeddings for similarity search.
+Examples?
+FAISS, Pinecone, Chroma.
+FAISS?
+Local vector similarity search library.
+Pinecone?
+Managed vector database.
+Chroma?
+Open-source vector DB.
+Retriever?
+Fetches relevant documents.
+Similarity search?
+Finds closest vectors.
+Cosine similarity?
+Measures angle similarity.
+Euclidean distance?
+Measures straight-line distance.
+Document loader?
+Loads data (PDF, CSV, etc.).
+Text splitting?
+Breaks large text into chunks.
+Chunking?
+Dividing text for embedding.
+Recursive splitter?
+Splits while preserving structure.
+Chunk size?
+Length of each text chunk.
+Chunk overlap?
+Shared text between chunks.
+Retriever types?
+Similarity, MMR, hybrid.
+MMR?
+Maximizes diversity + relevance.
+Metadata filtering?
+Filter results by attributes.
+Hybrid search?
+Keyword + vector search.
+Dense vs Sparse embeddings?
+Dense = semantic, Sparse = keyword-based.
+Indexing?
+Storing embeddings in DB.
+Query embedding?
+Embedding of user query.
+🔹 Intermediate (101–150)
+Runnable?
+New abstraction replacing chains.
+LCEL?
+LangChain Expression Language.
+LCEL benefit?
+Composable pipelines.
+Parallel execution?
+Run tasks simultaneously.
+Async execution?
+Non-blocking execution.
+Callbacks?
+Hooks for logging/debugging.
+LangSmith?
+Debugging + monitoring tool.
+Tracing?
+Tracking execution steps.
+Prompt injection?
+Malicious prompt manipulation.
+Prevent injection?
+Input validation + guardrails.
+Hallucination?
+False LLM output.
+Reduce hallucination?
+Use RAG + grounding.
+Caching?
+Store responses to reduce cost.
+Batching?
+Process multiple inputs together.
+Rate limits?
+API request limits.
+Retry logic?
+Handle failures.
+Tool calling?
+LLM invokes external tools.
+Function calling?
+Structured API calling.
+Agent loop?
+Think → act → observe cycle.
+Multi-agent system?
+Multiple agents collaborate.
+LangGraph?
+Graph-based orchestration.
+DAG?
+Directed execution flow.
+State management?
+Track workflow state.
+Persistence?
+Store execution state.
+Human-in-loop?
+Manual intervention step.
+🔹 Advanced (151–180)
+Agent planning?
+Deciding execution steps.
+Reflection?
+Self-correction by agent.
+AutoGPT vs LangChain?
+AutoGPT = autonomous, LangChain = framework.
+Guardrails?
+Constraints on LLM output.
+Evaluation?
+Measure model performance.
+Metrics?
+Accuracy, relevance, latency.
+Latency optimization?
+Caching + smaller models.
+Cost optimization?
+Reduce tokens + reuse results.
+Streaming vs batch?
+Real-time vs bulk processing.
+Tokenization?
+Text → tokens.
+Fine-tuning vs prompting?
+Training vs instructions.
+Few-shot vs zero-shot?
+Examples vs none.
+Prompt chaining?
+Multiple prompts in sequence.
+Context window?
+Max tokens model can process.
+Long context handling?
+Chunking + retrieval.
+🔹 Scenario-Based (181–200)
+Build chatbot?
+LLM + memory + prompt.
+PDF QA system?
+Loader → splitter → embeddings → retriever → LLM.
+Improve retrieval?
+Better chunking + embeddings.
+Handle long docs?
+Chunk + summarize.
+Reduce hallucination?
+RAG + citations.
+Multi-agent system?
+Divide tasks among agents.
+API integration?
+Use tools.
+Resume screening?
+RAG + classification.
+Evaluate chatbot?
+Human + automated evals.
+Deploy LangChain app?
+Use FastAPI + cloud.
+🚀 Extra 100 Rapid-Fire (Ultra Short)
+What is prompt engineering? → Designing prompts
+Token limit? → Max tokens
+Context? → Input + history
+Embedding model? → Converts text to vectors
+Semantic search? → Meaning-based search
+Vector similarity? → Distance comparison
+OpenAI integration? → API-based LLM
+HuggingFace? → Open models
+Tool usage? → External API call
+Agent executor? → Runs agent loop
