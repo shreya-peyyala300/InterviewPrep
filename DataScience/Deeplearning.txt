@@ -1,1 +1,86 @@
+What is a perceptron?
+Who introduced the perceptron?
+What is the difference between a neuron and a perceptron?
+What type of problems can a perceptron solve?
+What is a linear decision boundary?
+What are weights and bias?
+What is the role of the activation function?
+What activation function does a perceptron use?
+What is the output range of a perceptron?
+Why is perceptron called a linear classifier?
+🔥 Intermediate Questions
+How does a perceptron work step by step?
+What is the perceptron learning rule?
+How are weights updated in a perceptron?
+What is the perceptron trick?
+What is the loss function of a perceptron?
+Why does perceptron loss consider only misclassified points?
+What is the role of learning rate?
+What happens if the learning rate is too high/low?
+What is forward propagation in perceptron?
+Does perceptron use backpropagation?
+🧠 Conceptual / Theory Questions
+What is linearly separable data?
+Give an example of linearly separable vs non-separable data
+Why does perceptron fail on non-linear data?
+Explain XOR problem
+Why perceptron cannot solve XOR?
+What is convergence in perceptron?
+When does perceptron converge?
+What happens if data is not linearly separable?
+What is the perceptron convergence theorem?
+Why does perceptron oscillate sometimes?
+⚠️ Limitations (VERY IMPORTANT)
+What are the limitations of perceptron?
+Why is perceptron not used in modern deep learning?
+Why is step function a problem?
+Why perceptron cannot output probabilities?
+Why perceptron is sensitive to data order?
+🔄 Comparison Questions
+Perceptron vs Logistic Regression
+Perceptron vs SVM
+Perceptron vs Neural Network
+Single-layer vs Multi-layer perceptron
+Perceptron vs Gradient Descent
+💻 Coding Questions
+Write perceptron from scratch
+Implement AND gate using perceptron
+Implement OR gate using perceptron
+Why XOR cannot be implemented?
+Modify perceptron for multi-class classification
+🔥 Advanced Questions
+What is dual perceptron?
+What is kernel perceptron?
+How does perceptron relate to SVM?
+What is margin in perceptron?
+How to improve perceptron performance?
+🎯 Scenario-Based Questions
+What happens if all weights are initialized to zero?
+What if bias is not used?
+Can perceptron work with noisy data?
+How does perceptron handle outliers?
+What happens if dataset is imbalanced?
+⚡ Rapid-Fire (Very Common)
 
+👉 Why perceptron fails on XOR?
+👉 What is perceptron trick?
+👉 What is perceptron loss?
+👉 What is linear separability?
+👉 Does perceptron converge always?
+
+🎯 Must-Know Answers (Top 5)
+
+👉 Why perceptron fails on XOR?
+Because XOR is not linearly separable.
+
+👉 When does perceptron converge?
+Only when data is linearly separable.
+
+👉 What is perceptron loss?
+Loss penalizes only misclassified points.
+
+👉 What is perceptron trick?
+Updating weights to correct misclassified points.
+
+👉 Why linear classifier?
+Because it creates a straight-line boundary.
